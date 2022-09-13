@@ -67,81 +67,101 @@ public class Lecture {
 		/*
 		10. Create an int variable that holds the difference between 121 and 27.
 		*/
-		int diff = 121 - 27;
+		int value1 = 121;
+		int value2 = 27;
+		int diff = value1 - value2;
+		System.out.println(diff);
 		/*
 		11. Create a double that holds the addition of 12.3 and 32.1.
 		*/
+
 		double sum = 12.3 + 32.1;
+		System.out.println(sum);
 		/*
 		12. Create a String that holds your full name.
 		*/
 		String fullName = "Brandon Alexander Perez";
+		System.out.println(fullName);
 		/*
 		13. Create a String that holds the word "Hello, " concatenated onto your
 		name from above.
 		*/
 		String phrase = "Hello, " + fullName;
+		System.out.println(fullName);
 		/*
 		14. Add an " Esquire" onto the end of your full name and save it back to
 		the same variable.
 		*/
 		fullName = fullName + " Esquire";
+		System.out.println(fullName);
 		/*
 		15. Now do the same as exercise 14, but use the += operator.
 		*/
-		fullName+= "Esquire";
+		fullName+= " Esquire";
+		System.out.println(fullName);
 		/*
 		16. Create a variable to hold "Saw" and add a 2 onto the end of it.
 		*/
 		String saw = "Saw " + 2;
+		System.out.println(saw);
 		/*
 		17. Add a 0 onto the end of the variable from exercise 16.
 		*/
 		saw += 0;
+		System.out.println(saw);
 		/*
 		18. What is 4.4 divided by 2.2?
 		*/
 		double answer = 4.4/2.2;
+		System.out.println(answer);
 		//2.0
 		/*
 		19. What is 5.4 divided by 2?
 		*/
 		double answer2 = 5.4/2;
+		System.out.println(answer2);
 		//2.7
 		/*
 		20. What is 5 divided by 2?
 		*/
 		int answer3 = 5/2;
+		System.out.println(answer3);
 		//2
 		/*
 		21. What is 5.0 divided by 2?
 		*/
 		double answer4 = 5.0/2;
+		System.out.println(answer4);
 		//2.5
 		/*
 		22. What is 66.6 divided by 100? Is the answer you get right or wrong?
 		*/
 		double answer5 = 66.6/100;
+		System.out.println(answer5);
 		//.666
 		/*
 		23. If I divide 5 by 2, what's my remainder?
 		*/
 		int answer6 = 5%2;
+		System.out.println(answer6);
 		//1
 		/*
 		24. What is 1,000,000,000 * 3?
 		*/
 		long answer7 = 1000000000*3;
+		System.out.println(answer7);
 		//3000000000
 		/*
 		25. Create a variable that holds a boolean called isDoneWithExercises and
 		set it to false.
 		*/
 		boolean isDoneWithExercise = false;
+		System.out.println(isDoneWithExercise);
 		/*
 		26. Now set isDoneWithExercise to true.
 		*/
 		isDoneWithExercise = !isDoneWithExercise;
+		System.out.println(isDoneWithExercise);
 	}
 
 }
