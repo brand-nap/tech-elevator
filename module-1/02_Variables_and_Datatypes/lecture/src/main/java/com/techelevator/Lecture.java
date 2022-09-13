@@ -87,7 +87,7 @@ public class Lecture {
 		name from above.
 		*/
 		String phrase = "Hello, " + fullName;
-		System.out.println(fullName);
+		System.out.println(phrase);
 		/*
 		14. Add an " Esquire" onto the end of your full name and save it back to
 		the same variable.
