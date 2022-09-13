@@ -50,7 +50,7 @@ public class Exercises {
         owls are on the fence now?
         */
 		int ogOwls = 3;
-		int newOwls = 3;
+		int newOwls = 2;
 		int totOwls = ogOwls + newOwls;
 
         /* Exercise 7
@@ -81,10 +81,10 @@ public class Exercises {
         10. Mrs. Hilt found a quarter, 1 dime, and 2 nickels. How much money did
         she find?
         */
-		int quarter = 25;
-		int dime = 10;
-		int nickel = 5;
-		int networth = quarter + dime + 2*nickel;
+		double quarter = .25;
+		double dime = .10;
+		double nickel = .05;
+		double networth = quarter + dime + 2*nickel;
 
         /* Exercise 11
         11. Mrs. Hilt's favorite first grade classes are baking muffins. Mrs. Brier's
@@ -102,9 +102,9 @@ public class Exercises {
         much did she spend in all for the two toys?
         */
 
-		int yoyo = 24;
-		int whistle = 14;
-		int cost = yoyo + whistle;
+		double yoyo = .24;
+		double whistle = .14;
+		double cost = yoyo + whistle;
         /* Exercise 13
         13. Mrs. Hilt made 5 Rice Krispies Treats. She used 8 large marshmallows
         and 10 mini marshmallows.How many marshmallows did she use
@@ -128,10 +128,10 @@ public class Exercises {
         15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2 on a pencil
         case. How much money does she have left?
         */
-		int cash = 10;
+		double cash = 10;
 		int truck = 3;
 		int pencilCase = 2;
-		int leftOver = cash - (truck + pencilCase);
+		double leftOver = cash - (truck + pencilCase);
 
         /* Exercise 16
         16. Josh had 16 marbles in his collection. He lost 7 marbles. How many
@@ -147,7 +147,7 @@ public class Exercises {
         */
 		int currentSeashells = 19;
 		int goalSeashells = 25;
-		int missingSeashells = currentSeashells - goalSeashells;
+		int missingSeashells = goalSeashells - currentSeashells ;
 
         /* Exercise 18
         18. Brad has 17 balloons. 8 balloons are red and the rest are green. How
@@ -169,15 +169,15 @@ public class Exercises {
         20. A bee has 6 legs. How many legs do 8 bees have?
         */
 		int beeLegs = 6;
-		int hive = 6;
+		int hive = 8;
 		int hiveLegTot = hive*beeLegs;
 
         /* Exercise 21
         21. Mrs. Hilt bought an ice cream cone for 99 cents. How much would 2 ice
         cream cones cost?
         */
-		int icecream = 99;
-		int icecreamRetreat = icecream*2;
+		double icecream = .99;
+		double icecreamRetreat = icecream*2;
 
         /* Exercise 22
         22. Mrs. Hilt wants to make a border around her garden. She needs 125
@@ -228,7 +228,7 @@ public class Exercises {
         */
 		int hiltFunds = 50;
 		int pencil = 7;
-		int pencilsBought = hiltFunds - pencil;
+		int pencilsBought = hiltFunds/pencil;
 
 
         /* Exercise 28
@@ -417,7 +417,8 @@ public class Exercises {
         */
 		int cards = 94;
 		int cardBoxSize = 8;
-		int cardBoxTot = cards / cardBoxSize;
+		int cardBoxTot = cards / cardBoxSize + 1;
+		int cardsInLast = cards % cardBoxSize;
 
 
         /* Exercise 49
@@ -435,9 +436,9 @@ public class Exercises {
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
-		int croissants2 = 17;
-		int guests = 7;
-		int croissantDist = croissants2/guests;
+		int croissantsTwo = 17;
+		double guests = 7;
+		double croissantDist = croissantsTwo/guests;
 
 	    /* Exercise 51
 	    51. Bill and Jill are house painters. Bill can paint a standard room in 2.15 hours, while Jill averages
@@ -470,9 +471,9 @@ public class Exercises {
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
 	    What percentage of the trip as a whole number has been completed?
 	    */
-		int distance = 800;
-		int travelled = 537;
-		int percentComplete = distance/travelled;
+		double distance = 800.0;
+		double travelled = 537;
+		int percentComplete = (int) (100*(travelled/distance));
 	}
 
 }
