@@ -24,6 +24,9 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50) ➔ false
      */
     public boolean acceptPackage(int weightPounds) {
+        if(weightPounds <= 40) {
+            return true;
+        }
         return false;
     }
 
@@ -41,7 +44,10 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches) {
-        return false;
+        if ((lengthInches*widthInches*heightInches) > 6912){
+            return false;
+        }
+        return acceptPackage(weightPounds);
     }
 
     /*
@@ -64,6 +70,9 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10, true) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches, boolean isSurchargePaid) {
+        if (isSurchargePaid||(lengthInches<=66&&(heightInches<=66&&(widthInches<=66)))){
+            return acceptPackage(weightPounds, lengthInches, widthInches, heightInches);
+        }
         return false;
     }
 }

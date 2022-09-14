@@ -1,5 +1,6 @@
 package com.techelevator;
 
+
 public class Exercise01_TestGrading {
 
     /*
@@ -18,9 +19,8 @@ public class Exercise01_TestGrading {
     gradeTestPassFail(45) ➔ false
      */
     public boolean gradeTestPassFail(int score) {
-        return false;
+        return (score >= 70);
     }
-
     /*
     Grade-o-matic received numerous requests from customers to grade using a point-based system.
     Grade-o-matic v2.0 can now also score tests on a 0-3 scale.
@@ -37,7 +37,7 @@ public class Exercise01_TestGrading {
     gradeTestNumeric(10) ➔ 0
      */
     public int gradeTestNumeric(int score) {
-        return 0;
+        return (score >= 90) ? 3 : (score >=50) ? 2 : (score >=25) ?  1 : 0;
     }
 
     /*
@@ -56,6 +56,22 @@ public class Exercise01_TestGrading {
     gradeTestLetter(45) ➔ 'F'
      */
     public char gradeTestLetter(int score) {
-        return ' ';
+        String letterGrade = "AABCDFFFFFF";
+        int scored = -1*score/10 + 10;
+        return letterGrade.charAt(scored);
+
+        //I've... taken a handful of Java courses... lol
+
+
+        /* here's the way I was supposed to solve it
+
+        if (score >= 90){
+        }else if (score >=80){
+        }else if etc...
+        }
+
+        return 'F';
+        with all scenarios being a char...
+         */
     }
 }
