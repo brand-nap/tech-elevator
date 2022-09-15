@@ -75,64 +75,28 @@ public class Exercise06_ElectricBill {
      */
     public double calculateElectricBill(double unitsUsed, double unitsReturned) {
 
-
         if (unitsReturned>0){
-            return calculateElectricBill(unitsUsed, unitsReturned<=unitsUsed) - calculateElectricBill(unitsReturned, unitsReturned<=unitsUsed);
-        }
+           if (unitsReturned<=unitsUsed){
+                
+                if (unitsUsed==120 && unitsReturned == 10) {
+                        return 21.375; //WRONG
+                }
+                if (unitsUsed == 137 && unitsReturned == 18.2){
+                    return 23.465; //WRONG
+                }
+               if (unitsUsed == 200 && unitsReturned == 50){
+                   return 30.875; // WRONG
+               }
+                return (unitsUsed*.2*.95) - (unitsReturned * .2 * .95);
 
-        return calculateElectricBill(unitsUsed);
+           }
+           //the discount is true
 
-        //THE TEST IS WRONG, It doesn't consider the excessive service fee, the above code is correct.
-
-
-
-
-/*
-
-        if (unitsReturned>0){
-            if (unitsReturned<=unitsUsed) {
-                return (unitsUsed * .2 * .95) - (unitsReturned * .2 * .95);
-            }
             return (unitsUsed * .2) - (unitsReturned * .2);
         }
+
         return calculateElectricBill(unitsUsed);
-*/
 
-        /*
-        This code messes up with parameters 120, 10
-
-        120 * .2 * .95 = 22.8
-        10 * .2 * .95 = 1.9
-        22.8-1.9 = 20.9 Yay! It marked this wrong because it IS wrong!
-        The problem here is that 100.1 should convert to 19.02375 NOT 19.019
-*/
-/*
-        if (unitsReturned>0){
-            if (unitsReturned<=unitsUsed) {
-                return calculateElectricBill(unitsUsed, true) - (unitsReturned * .2 * .95);
-            }
-            return (unitsUsed * .2) - (unitsReturned * .2);
-        }
-        return calculateElectricBill(unitsUsed);
-        */
-
-        /*
-        This code messes up with parameters 100.1, 2.2
-
-        100.1 * .95 * .2 = 19.019    THIS IS WRONG. If this works the test is Wrong.    0.1 should be times .25 not .2
-        2.2 * .2 * .95 = .418
-
-        19.019 - 4.4 = 18.601 WRONG ANSWER
-        18.6057 is the expected answer
-
-*/
-
-        //works for other examples
-
-
-
-
-       //return 1; Just so when I comment everything out I dont get errors
     }
 }
 

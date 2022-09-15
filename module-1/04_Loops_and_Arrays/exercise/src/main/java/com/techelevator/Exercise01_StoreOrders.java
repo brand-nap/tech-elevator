@@ -43,7 +43,8 @@ public class Exercise01_StoreOrders {
 	 createOrder() → [10, 40, 31, 41]
      */
     public int[] createOrder() {
-        return new int[] {};
+
+        return new int[] {10, 40, 31, 41};
     }
 
     /*
@@ -58,8 +59,12 @@ public class Exercise01_StoreOrders {
     getCalzoneSales([]) → 0
      */
     public int getCalzoneSales(int[] orders) {
-        return 0;
-    }
+        int calzones = 0;
+        for (int i = 0; i < orders.length; i++){
+            calzones += (orders[i] == 40) ? 1 : 0;
+        }
+        return calzones;
+        }
 
     /*
     Sally also needs to know the total revenue for all cheese pizzas sold on any given day.
@@ -76,6 +81,10 @@ public class Exercise01_StoreOrders {
     getCheesePizzaRevenue([11, 21]) → 0
      */
     public int getCheesePizzaRevenue(int[] orders) {
-        return 0;
+        int rev = 0;
+        for (int i = 0; i < orders.length; i++){
+            rev += (orders[i] == SMALL_CHEESE) ? 8 : (orders[i] == MEDIUM_CHEESE) ? 11 : (orders[i] == LARGE_CHEESE) ? 14 : 0;
+        }
+        return rev;
     }
 }
