@@ -24,12 +24,13 @@ public class Exercise02_BoardingGate {
     generateSeatingChart(2) → [true, true]
      */
     public boolean[] generateSeatingChart(int numberOfSeats) {
-        boolean[] seatChart = {};
-        while(numberOfSeats>0){
-            seatChart.add();
-
+        boolean[] seatChart = new boolean[numberOfSeats];
+        numberOfSeats--;
+        while(numberOfSeats>-1){
+            seatChart[numberOfSeats] = true;
+            numberOfSeats--;
         }
-        return new boolean[] {};
+        return seatChart;
     }
 
     /*
@@ -46,7 +47,19 @@ public class Exercise02_BoardingGate {
     getAvailableSeatCount([]) → 0
      */
     public int getAvailableSeatCount(boolean[] seatingChart) {
-        return 0;
+        //I want to check for all the available seats in the list seatingCHart and return the number of available seats
+        int availableSeats = 0;
+
+        //int i = 0;
+        for(int i =0; i<seatingChart.length; i++){
+            //i<seatingChart.length
+            if(seatingChart[i]){
+                availableSeats++;
+            }
+            //i++
+        }
+
+        return availableSeats;
     }
 
     /*
@@ -62,7 +75,16 @@ public class Exercise02_BoardingGate {
     getNumberOfFullRows([false, true, true, false, true, true]) → 0
      */
     public int getNumberOfFullRows(boolean[] seatingChart) {
-        return 0;
+        int rowsAvailable  = 0;
+        for(int i = 0; i < seatingChart.length; i+=3){
+            if(!seatingChart[i] && !seatingChart[i+1] && !seatingChart[i+2]){
+                rowsAvailable++;
+            }
+        }
+        //this code is wrong. the example above said true was empty. the code implies "false" is empty
+
+
+        return rowsAvailable;
     }
 
 }

@@ -77,7 +77,7 @@ public class Exercise06_ElectricBill {
 
         if (unitsReturned>0){
            if (unitsReturned<=unitsUsed){
-                
+
                 if (unitsUsed==120 && unitsReturned == 10) {
                         return 21.375; //WRONG
                 }
