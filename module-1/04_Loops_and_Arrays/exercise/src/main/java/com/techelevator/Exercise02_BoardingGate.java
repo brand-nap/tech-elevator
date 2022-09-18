@@ -49,13 +49,14 @@ public class Exercise02_BoardingGate {
     public int getAvailableSeatCount(boolean[] seatingChart) {
         //I want to check for all the available seats in the list seatingCHart and return the number of available seats
         int availableSeats = 0;
-
+        boolean[] reservedSeats = new boolean[seatingChart.length];
         //int i = 0;
         for(int i =0; i<seatingChart.length; i++){
             //i<seatingChart.length
             if(seatingChart[i]){
                 availableSeats++;
             }
+
             //i++
         }
 
