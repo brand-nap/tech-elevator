@@ -7,8 +7,8 @@ public class DecimalToBinary {
 		String unconvertedLine = sc.nextLine();
 		String[] strList = unconvertedLine.split(" ");
 		System.out.println();
-		for (int i = 0; i < strList.length; i++) {
-			System.out.println(strList[i] + " in binary is "  + binaryBarfer(Double.parseDouble(strList[i])));
+		for (String s : strList) {
+			System.out.println(s + " in binary is " + binaryBarfer(Double.parseDouble(s)));
 		} //IT'S ALL SO BEAUTIFUL *crying emoji*
 	}
 	public static String binaryBarfer(double og){
@@ -18,7 +18,7 @@ public class DecimalToBinary {
 			for(binaryPow = 0; Math.pow(2, binaryPow+1)<=og; binaryPow++ ){}
 			og-=Math.pow(2, binaryPow);
 			String newAddition = "1";
-			for(binaryPow = binaryPow; binaryPow!=0; binaryPow--){
+			for(; binaryPow!=0; binaryPow--){
 				newAddition = newAddition+ "0";
 			}
 			binaryReturn = (binaryReturn.equals("0")) ? binaryReturn = newAddition : binaryReturn.substring(0, binaryReturn.length()-newAddition.length()) + newAddition;
