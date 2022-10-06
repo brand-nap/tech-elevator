@@ -10,11 +10,16 @@ import java.util.Scanner;
 public class FindAndReplace {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("What is the source word?");
         String search = scanner.nextLine();
+        System.out.println("What is the replacement word?");
         String replace = scanner.nextLine();
+        System.out.println("What is the source file?");
         File source = new File(scanner.nextLine());
+        System.out.println("What is the destination file?");
         File destination = new File(scanner.nextLine());
         destination.createNewFile();
+
         try(PrintWriter fileWriter = new PrintWriter(destination)){
             Scanner fileReader = new Scanner(source);
             while(fileReader.hasNextLine()){
