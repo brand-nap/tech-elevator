@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FindAndReplace {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What is the source word?");
         String search = scanner.nextLine();
@@ -18,7 +18,9 @@ public class FindAndReplace {
         File source = new File(scanner.nextLine());
         System.out.println("What is the destination file?");
         File destination = new File(scanner.nextLine());
-        destination.createNewFile();
+        try {
+            destination.createNewFile();
+        }catch(IOException e){}
 
         try(PrintWriter fileWriter = new PrintWriter(destination)){
             Scanner fileReader = new Scanner(source);
@@ -30,6 +32,8 @@ public class FindAndReplace {
                 }
                 fileWriter.println(line[line.length-1]);;
             }
+        }catch(IOException e){
+            System.out.println("Destination doesn't exist");
         }
     }
 }
