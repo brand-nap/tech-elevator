@@ -34,8 +34,47 @@ public class AnimalGroupNameTest {
      */
     @Test
     public void getHerd_withCapitalizedName_shouldReturnTrue(){
-        boolean expected = true;
-        boolean test = animalGroupName.getHerd("ELEPHANT").equals("Herd");
-
+        //Arrange
+        String expectedResult = "Herd";
+        //Act
+        String actualResult = animalGroupName.getHerd("ELEPHANT");
+        //Assert
+        Assert.assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void getPride_withLowerCaseName_shouldReturnTrue(){
+        //Arrange
+        String expectedResult = "Pride";
+        //Act
+        String actualResult = animalGroupName.getHerd("lion");
+        //Assert
+        Assert.assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void getKit_withName_shouldReturnTrue(){
+        //Arrange
+        String expectedResult = "Kit";
+        //Act
+        String actualResult = animalGroupName.getHerd("pigeon");
+        //Assert
+        Assert.assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void getHerd_withNull_shouldReturnFalse(){
+        //Arrange
+        String expectedResult = "Herd";
+        //Act
+        String actualResult = animalGroupName.getHerd(null);
+        //Assert
+        Assert.assertNotEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void getCrash_withLion_shouldReturnFalse(){
+        //Arrange
+        String expectedResult = "Crash";
+        //Act
+        String actualResult = animalGroupName.getHerd("Lion");
+        //Assert
+        Assert.assertNotEquals(expectedResult, actualResult);
     }
 }
