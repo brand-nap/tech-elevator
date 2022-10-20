@@ -15,9 +15,9 @@ CREATE TABLE members(
 	email varchar(30) NOT NULL,
 	phone bigint NULL,
 	birthday date NOT NULL,
-	is_reminded boolean NOT NULL,
-	CONSTRAINT pk_members_member_id PRIMARY KEY (member_id),
-	CONSTRAINT chk_valid_email CHECK (email LIKE '%@%.%')
+	has_reminder boolean NOT NULL,
+	CONSTRAINT PK_members_member_id PRIMARY KEY (member_id),
+	CONSTRAINT CHK_valid_email CHECK (email LIKE '%@%.%')
 );
 
 --Member Number
@@ -53,7 +53,7 @@ CREATE TABLE events(
 	group_id int NOT NULL,
 	CONSTRAINT PK_events_event_id PRIMARY KEY (event_id),
 	CONSTRAINT FK_interest_group_group_id FOREIGN KEY (group_id) REFERENCES interest_groups(group_id),
-	CONSTRAINT chk_half_hour_duration CHECK (duration >= 30)
+	CONSTRAINT CHK_half_hour_duration CHECK (duration >= 30)
 );
 
 --Event Number
@@ -85,7 +85,7 @@ CREATE TABLE members_groups(
     CONSTRAINT FK_members_groups_group FOREIGN KEY(group_id) REFERENCES interest_groups(group_id)
 );
 
-INSERT INTO members(last_name, first_name, email, phone, birthday, is_reminded)
+INSERT INTO members(last_name, first_name, email, phone, birthday, has_reminder)
 VALUES ('Perez', 'Brandon', '8randonperes@gmail.com', 8088599122, '02/15/2003', false);
 
 INSERT INTO interest_groups(group_name)
