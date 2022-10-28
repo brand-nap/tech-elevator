@@ -23,7 +23,7 @@ public class AuctionService {
     }
 
     public Auction[] getAuctionsAtOrBelowPrice(double price) {
-        return restTemplate.getForObject(API_BASE_URL + "?currentBid=" + price, Auction[].class);
+        return restTemplate.getForObject(API_BASE_URL + "?currentBid_lte=" + price, Auction[].class);
         //No idea how to do this :(
     }
 
