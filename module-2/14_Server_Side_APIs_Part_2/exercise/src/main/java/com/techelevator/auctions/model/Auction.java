@@ -13,20 +13,7 @@ public class Auction {
     private String user;
     @Positive(message = "The currentBid field must be greater than 0.")
     private double currentBid;
-    //title
-    //rule: Not Blank
-    //message: "The title field must not be blank."
-    //description
-    //rule: Not Blank
-    //message: "The description field must not be blank."
-    //user
-    //rule: Not Blank
-    //message: "The user field must not be blank."
-    //currentBid
-    //rule: Min 1
-    //message: "The currentBid field must be greater than 0."
-    //currentBid is a double, so you can't use the rule @Min().
-    //@Positive might be an annotation to look at.
+
 
     public Auction() {
     }
