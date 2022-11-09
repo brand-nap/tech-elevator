@@ -1,0 +1,53 @@
+header{
+    text-align: center;
+}
+body{
+    background-color: rgb(198, 204, 190);
+    color: rgb(56, 63, 30);
+}
+h2{
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+img{
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#fun-facts-heading{
+    text-decoration-line: underline;
+}
+#quotes-heading{
+    text-decoration-line: underline;
+}
+#links-heading{
+    text-decoration-line: underline;
+}
+th, td {
+    width: 30%;
+    border:1px solid black;
+    border-collapse: collapse;
+}
+table{
+    width: 40%;
+    border:1px solid black;
+    border-collapse: collapse;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#quotes{
+    font-style:italic;
+    text-align: center;
+}
+
+ul{
+    display: inline-block; text-align: left; ;
+}
+section {
+    text-align: center; 
+}
