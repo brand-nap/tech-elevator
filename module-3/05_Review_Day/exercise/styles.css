@@ -15,12 +15,20 @@ nav ul li {
     border-radius: 5px;
     text-align: center;
     line-height: 50px;
+    font-weight:bold;
+}
+
+nav ul li a{
+    color: black;
+    text-decoration-line: none;
+    font-weight:bold;
 }
 
 header img {
     height: 100px;
     width: auto;
 }
+
 header h1 {
     padding-left: 20px;
     padding-top: 10px;
@@ -55,3 +63,21 @@ main, section, footer {
     text-align: center;
     text-transform: uppercase;
 }
+
+section li{
+    list-style: none;
+    width: 30%;
+    background-color: #00afef;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 50px;
+    font-weight:bold;
+}
+
+.head{
+    grid-area: head;
+}
+header h1{
+    display: inline-block;
+}
+

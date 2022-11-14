@@ -4,7 +4,8 @@ body {
 }
 
 header {
-  text-align: center;;
+  text-align: center;
+  display: flex;
 }
 
 ul {
@@ -13,14 +14,17 @@ ul {
   list-style-type: none;
 }
 
+div.bio:nth-child(2) > img{
+order: row-reverse;
+}
+
 li {
   font-size: 1.5rem;
   color: #707070;
   margin-left: 20px;
 }
 
-a,
-a:visited {
+a, a:visited {
   color: #707070;
   text-decoration: none;
 }

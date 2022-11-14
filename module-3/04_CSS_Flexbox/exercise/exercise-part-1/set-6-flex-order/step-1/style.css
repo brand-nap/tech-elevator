@@ -10,6 +10,13 @@ body {
   margin-bottom: 20px;
   border: solid 1px #555;
 }
+.bio:nth-child(1){
+  display:flex;
+}
+.bio:nth-child(2){
+  display:flex;
+}
+
 
 .bio img {
   width: 150px;
