@@ -11,51 +11,56 @@ body {
   background-color: rgba(192, 192, 192, 0.1);
 }
 
+
 ul {
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 aside{
   position: fixed;
   border: 1px solid rgba(0,173,238,0.4);
-  height: 100vh;
+  height: 99vh;
   width: 200px;
 }
 
 aside>img{
   height: 120px;
-  margin-left:40px;
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 main{
-  margin-left: 250px;
-  padding-left: 250px;
+  margin-left: 200px;
+  padding-left: 200px;
   position: static;
   padding-right: 20px;
   padding-left: 220px;
   margin-left: 220px;
 }
-
+li a{
+  font-weight: bold;
+  color: rgb(0, 173, 238);
+  text-decoration-line: none;
+}
 li{
   text-align: center;
   text-transform: uppercase;
   border-bottom: 1px solid rgba(0, 173, 238, 0.4);
-  margin-left: 100;
-  margin-right: 100;
-  padding-top:100;
-  padding-bottom: 100;
   list-style-type: none;
+  width: 15vh;
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-li a{
-  font-weight: bold;
-  color: rgb(0, 173, 238);
-}
 
-li a{
-  text-decoration-line: none;
-}
+
+
 li:first-child a{
   text-decoration-line: underline;
 }
@@ -65,29 +70,34 @@ header img{
   padding-bottom: 50px;
 }
 
-img.banner{
-  width:80%px;
-}
-
 section{
   width: 90%;
 }
 
 section div{
-  width:29%;
+  width:33%;
   padding-top: 20px;
   margin-top: 20px;
   padding-right:20px;
   padding-left: 20px;
   margin-left:20px;
+  display: inline-block;
 }
-section div h2{
-  color: green;
-}
+
 section div h2 i{
-  padding-right: 10;
-  margin-right:10;
+  text-align: block;
+  padding-right: 20px;
+  margin-right: 20px;
 }
 section div #our-work{
-  border: 1 solid rgba(170, 239, 135, 0.8)
+  border: 1px solid rgba(170, 239, 135, 0.8);
+}
+h2{
+  color: rgb(140, 195, 111);
+}
+
+img.banner{
+  width:100vw;
+  padding-right: 10px;
+  margin-right: 10px;
 }
