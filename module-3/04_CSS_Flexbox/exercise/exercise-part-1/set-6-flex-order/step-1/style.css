@@ -15,7 +15,9 @@ body {
 }
 .bio:nth-child(2){
   display:flex;
+  flex-direction:row-reverse;
 }
+
 
 
 .bio img {
@@ -23,3 +25,9 @@ body {
   border-radius: 999px;
   margin: 0 10px;
 }
+
+.bio:nth-child(2) > img{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
