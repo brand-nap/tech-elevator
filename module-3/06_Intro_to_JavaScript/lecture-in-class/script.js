@@ -10,8 +10,27 @@
  */
 function variables() {
   // Declares a variable where the value cannot be changed
-  // Declares a variable those value can be changed
-  // Declares a variable that will always be an array
+  
+  const daysPerWeek = 7;
+  console.log("Days per week: " + daysPerWeek);
+// Declares a variable those value can be change
+  let daysPerMonth = 30;
+  console.log(`There are ${daysPerMonth} days in a month`);
+
+
+    // Declares a variable that will always be an array
+
+    const weekdays = [
+      "Sunday", 
+      "Monday", 
+      "Tuesday", 
+      "Wednesday", 
+      "Thursday", 
+      "Friday", 
+      "Saturday"
+    ];
+
+    console.table(weekdays);
 }
 
 /**
@@ -21,6 +40,7 @@ function variables() {
  * @param {Number} param2 The second number to display
  */
 function printParameters(param1, param2) {
+  console.log (param1 + param2);
   console.log(`The value of param1 is ${param1}`);
   console.log(`The value of param2 is ${param2}`);
 }
@@ -70,14 +90,22 @@ function objects() {
       "Milton Waddams",
       "Samir Nagheenanajar",
       "Michael Bolton"
-    ]
+    ],
+    toString: function(){
+      return `${this.lastName}, ${this.firstName} ${this.age}`;
+    }
   };
 
   // Log the object
-
+console.table(person);
+console.log(person.toString());
   // Log the first and last name
 
   // Log each employee
+
+  for ( let i = 0; i < person.employees.length; i++){
+    console.log(` Employee: ${i + 1} is ${person.employees[i]}`);
+  }
 }
 
 /*
@@ -94,9 +122,9 @@ function Add(num1, num2) {
   return num1 + num2;
 }
 
-// function Add(num1, num2, num3) {
-//   return num1 + num2 + num3;
-// }
+function Add(num1, num2, num3) {
+  return num1 + num2 + num3;
+}
 
 /*
 ########################
@@ -113,6 +141,8 @@ function mathFunctions() {
   console.log("Math.floor(1.99) : " + Math.floor(1.99));
   console.log("Math.ceil(1.01) : " + Math.ceil(1.01));
   console.log("Math.random() : " + Math.random());
+
+  console.log("Math.floor(Math.random() * 100) : " + Math.floor(Math.random() * 1000));
 }
 
 /*
