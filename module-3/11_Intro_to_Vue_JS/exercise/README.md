@@ -38,9 +38,9 @@ In your first task, you were asked to loop over the list of users and display th
 
 > When you've completed this task, 14 of 15 tests pass.
 
-## Step Six: Add `disabled` class
+## Step Six: Add `inactive` class
 
-You should be able to add the `disabled` class to any row where the user status is equal to `Disabled`.
+You should be able to add the `inactive` class to any row where the user status is equal to `Inactive`.
 
 > When you've completed this task, all tests pass.
 
