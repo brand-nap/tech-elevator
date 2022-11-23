@@ -51,27 +51,26 @@ export default {
         { firstName: 'Katie', lastName: 'Jackson', username: 'kjackson', emailAddress: 'kjackson@yahoo.com', status: 'Active' },
         { firstName: 'Mark', lastName: 'Smith', username: 'msmith', emailAddress: 'msmith@foo.com', status: 'Inactive' }
       ],
-      computed: {
+    }
+    
+  },
+  computed: {
         filteredList(){
             let finalList = [];
             this.users.forEach(user => {
-              if(user.firstName===this.search.firstName){
-                finalList.push(user);
-              }else if(user.lastName===this.search.lastName){
-                finalList.push(user);
-              }else if(user.username===this.search.username){
-                finalList.push(user);
-              }else if(user.emailAddress===this.search.emailAddress){
-                finalList.push(user);
-              }else if(user.status===this.search.status){
+              
+              let contains = this.search.firstName==="" || user.firstName.toLowerCase().includes(this.search.firstName.toLowerCase());
+              contains = (this.search.lastName==="" || user.lastName.toLowerCase().includes(this.search.lastName.toLowerCase())) ? contains : false;
+              contains = (this.search.emailAddress==="" || this.search.emailAddress === user.emailAddress) ? contains : false;
+              contains = (this.search.username==="" || this.search.username === user.username) ? contains : false;
+              contains = (this.search.status==="" || this.search.status === user.status) ? contains : false;
+              if(contains){
                 finalList.push(user);
               }
             });
             return finalList;
         }
       }
-    }
-  }
 }
 </script>
 
