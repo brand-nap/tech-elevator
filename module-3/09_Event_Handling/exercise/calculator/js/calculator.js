@@ -72,29 +72,45 @@ function clear() {
 }
 
 // add event listener for when the DOM is loaded
-document.addEventListener('LOADED_EVENT_GOES_HERE', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
   // set the variable called display declared at the top of this file equal to the display element
   // HINT: use its id #display to get a reference to it
+  display = document.querySelector('#display');
 
   // get a reference to all of the numbers
   // loop over each of the numbers
   // add a click event listener to each number to call the function clickNumber
+  const digits = document.querySelectorAll('.number')
+  digits.forEach((dig) => {
+    dig.addEventListener('click', (event) => {clickNumber(event)})
+  });
+
 
   // get a reference to the decimal point button
   // add a click event listener to call the function clickNumber
   // the decimal point is part of the number so you can call clickNumber for it 
-  // as you would for a number
-
+  // as you would for a numberconst digits = document.querySelectorAll('.number')
+  const dec = document.querySelector('.decimal')
+  dec.addEventListener('click', (event) => {clickNumber(event)})
+  
+  
   // get a reference to the all clear button
   // add a click event listener to call the function clear  
-
+  const clear = document.querySelector('.all-clear')
+  clear.addEventListener('click', (event) => {display.value=0})
   // get a reference to all of the operators;
   // loop over each of the operators
   // add a click event listener to each operator to call the function clickOperator
+  const operators = document.querySelectorAll('.operator')
+  operators.forEach((op) => {
+    op.addEventListener('click', (event) => {clickOperator(event)})
+  });
 
   // add click event listener for the equal sign
   // should call the function performOperation
+  const equalSign = document.querySelector('.equal-sign')
+  equalSign.addEventListener('click', (event) => {performOperation()})
 
 });
 

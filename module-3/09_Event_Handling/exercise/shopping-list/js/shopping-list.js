@@ -30,9 +30,51 @@ function displayGroceries() {
   groceries.forEach((item) => {
     const li = document.createElement('li');
     li.innerText = item.name;
+    li.id = item.id;
+    li.addEventListener('click', () => {
+      if(!li.classList.contains('completed')){
+        li.classList.add('completed');
+        setButtonName();
+      }
+    });
+    li.addEventListener('dblclick', () => {
+      if(li.classList.contains('completed')){
+        li.classList.remove('completed');
+        setButtonName();
+      }
+    });
     const checkCircle = document.createElement('i');
     checkCircle.setAttribute('class', 'far fa-check-circle');
     li.appendChild(checkCircle);
     ul.appendChild(li);
   });
 }
+
+function setButtonName() {
+  allItemsIncomplete = true;
+  groceries.forEach((item) => {
+    allItemsIncomplete = (allItemsIncomplete && !document.getElementById(item.id).classList.contains('completed'));
+  });
+  document.getElementById('toggleAll').textContent = (allItemsIncomplete) ? 'Mark All Complete': 'Mark All Incomplete' ;
+}
+
+function markAll(){
+  groceries.forEach((item) => {
+    if(allItemsIncomplete){
+      document.getElementById(item.id).classList.add('completed');
+    }else{
+      document.getElementById(item.id).classList.remove('completed');
+    }
+  });
+  setButtonName();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setPageTitle();
+  displayGroceries();
+  document.getElementById('toggleAll').addEventListener('click', () => {
+    markAll();
+  });
+})
+
+
