@@ -1,13 +1,18 @@
 <template>
-  <div class="book-container">
-
+  <div class="book-container" v-for:>
+    <book-card></book-card>
   </div>
 </template>
 
 <script>
-
+import BookCard from './BookCard.vue'
+ 
 export default {
-    name: 'reading-list'
+    name: 'reading-list',
+    components: [
+      BookCard
+      ],
+    props: ['books']
 }
 </script>
 

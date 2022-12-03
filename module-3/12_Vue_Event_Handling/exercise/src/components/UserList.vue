@@ -44,7 +44,7 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" />
+            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" v-on:click='manageSelectedUsers(user.id)'/>
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -52,36 +52,36 @@
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnEnableDisable">Enable or Disable</button>
+            <button class="btnEnableDisable" id="btnEnableDisable" type= button v-on:click='flipStatus(user.id)' >{{user.buttonLable}}</button>
           </td>
         </tr>
       </tbody>
     </table>
 
-    <div class="all-actions">
-      <button>Enable Users</button>
-      <button>Disable Users</button>
-      <button>Delete Users</button>
+    <div class="all-actions" >
+      <button v-on:click='enableSelectedUsers'>Enable Users</button>
+      <button v-on:click='disableSelectedUsers'>Disable Users</button>
+      <button v-on:click='deleteSelectedUsers'>Delete Users</button>
     </div>
 
-    <button>Add New User</button>
+    <button v-on:click="showForm = !showForm">Add New User</button>
 
-    <form id="frmAddNewUser">
+    <form id="frmAddNewUser" v-show="showForm" v-on:submit.prevent="saveUser">
       <div class="field">
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" />
+        <input type="text" name="firstName" v-model="newUser.firstName"/>
       </div>
       <div class="field">
         <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" />
+        <input type="text" name="lastName" v-model="newUser.lastName"/>
       </div>
       <div class="field">
         <label for="username">Username:</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" v-model="newUser.username"/>
       </div>
       <div class="field">
         <label for="emailAddress">Email Address:</label>
-        <input type="text" name="emailAddress" />
+        <input type="text" name="emailAddress" v-model="newUser.emailAddress"/>
       </div>
       <button type="submit" class="btn save">Save User</button>
     </form>
@@ -101,14 +101,17 @@ export default {
         status: ""
       },
       nextUserId: 7,
+      showForm: false,
       newUser: {
         id: null,
         firstName: "",
         lastName: "",
         username: "",
         emailAddress: "",
+        buttonLable: 'Disable',
         status: "Active"
       },
+      selectedUserIDs: [],
       users: [
         {
           id: 1,
@@ -116,6 +119,7 @@ export default {
           lastName: "Smith",
           username: "jsmith",
           emailAddress: "jsmith@gmail.com",
+          buttonLable: 'Disable',
           status: "Active"
         },
         {
@@ -124,6 +128,7 @@ export default {
           lastName: "Bell",
           username: "abell",
           emailAddress: "abell@yahoo.com",
+          buttonLable: 'Disable',
           status: "Active"
         },
         {
@@ -132,6 +137,7 @@ export default {
           lastName: "Best",
           username: "gbest",
           emailAddress: "gbest@gmail.com",
+          buttonLable: 'Enable',
           status: "Disabled"
         },
         {
@@ -140,6 +146,7 @@ export default {
           lastName: "Carter",
           username: "bcarter",
           emailAddress: "bcarter@gmail.com",
+          buttonLable: 'Disable',
           status: "Active"
         },
         {
@@ -148,6 +155,7 @@ export default {
           lastName: "Jackson",
           username: "kjackson",
           emailAddress: "kjackson@yahoo.com",
+          buttonLable: 'Disable',
           status: "Active"
         },
         {
@@ -156,14 +164,63 @@ export default {
           lastName: "Smith",
           username: "msmith",
           emailAddress: "msmith@foo.com",
+          buttonLable: 'Enable',
           status: "Disabled"
         }
       ]
     };
   },
   methods: {
+    saveUser(){
+      this.newUser.id = this.getNextUserId();
+      this.users.push(this.newUser);
+      document.getElementById('frmAddNewUser').reset();
+    },
     getNextUserId() {
-      return this.nextUserId++;
+      return this.nextUserId++; 
+    },
+    flipStatus(id){
+      this.users.forEach((user)=>{
+        if(user.id==id){
+          user.status = (user.status=='Active') ? 'Disabled': 'Active';
+          user.buttonLable = (user.status=='Active') ? 'Disable': 'Enable';
+        }
+      })      
+    },
+    manageSelectedUsers(id){
+      this.users.forEach((user)=>{
+        if(user.id==id && document.getElementById(id).checked == true && !this.selectedUserIDs.includes(id)){
+          this.selectedUserIDs.push(id);
+        }else if(user.id==id && this.selectedUserIDs.includes(id)){
+          this.selectedUserIDs.remove(id);
+        }
+      })
+    },
+    enableSelectedUsers(){
+      this.users.forEach((user)=>{
+        if(this.selectedUserIDs.includes(user.id)){
+          user.status = 'Active';
+          user.buttonLable = 'Disable';
+        }
+      })
+      this.selectedUserIDs = [];
+    },
+    disableSelectedUsers(){
+      this.users.forEach((user)=>{
+        if(this.selectedUserIDs.includes(user.id)){
+          user.status = 'Disabled';
+          user.buttonLable = 'Enable';
+        }
+      })
+      this.selectedUserIDs = [];
+    }, 
+    deleteSelectedUsers(){
+      this.users.forEach((user)=>{
+        if(this.selectedUserIDs.contains(user.id)){
+          this.users.remove(user)
+        }
+      })
+      this.selectedUserIDs = [];
     }
   },
   computed: {

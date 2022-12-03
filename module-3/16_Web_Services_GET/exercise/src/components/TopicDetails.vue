@@ -1,8 +1,15 @@
 <template>
   <div class="topic-details">
     <h1>{{ topic.title }}</h1>
+    
+    
+    
+    
+    
     <div v-for="message in topic.messages" v-bind:key="message.id" class="topic-message bubble">
       <h3 class="message-title">{{ message.title }}</h3>
+      
+
       <p class="message-body">
         {{ message.messageText }}
       </p>
@@ -11,10 +18,17 @@
 </template>
 
 <script>
+import topicService from '../services/TopicService.js'
 export default {
+  
   name: 'topic-details',
   props: {
     'topicId': Number
+  },
+  created() {
+    topicService.getTopic(this.topicId).then(response => {
+      this.topic = response.data;
+    })
   },
   data() {
     return {
