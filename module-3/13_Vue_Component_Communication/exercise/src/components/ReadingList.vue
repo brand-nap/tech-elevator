@@ -1,6 +1,7 @@
 <template>
-  <div class="book-container" v-for:>
-    <book-card></book-card>
+  <div class="book-container">
+    <book-card v-for="book in this.$store.state.books"
+      v-bind:key="book.isbn" v-bind:book="book"></book-card>
   </div>
 </template>
 
@@ -8,11 +9,10 @@
 import BookCard from './BookCard.vue'
  
 export default {
-    name: 'reading-list',
-    components: [
-      BookCard
-      ],
-    props: ['books']
+  components: { 
+    BookCard
+  },
+    name: 'reading-list'
 }
 </script>
 
