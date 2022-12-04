@@ -16,7 +16,7 @@
         :to="{name: 'EditMessage', params: {topicId: $store.state.activeTopic.id, messageId: message.id} }"
         class="btnEditMessage"
       >Edit</router-link>
-      <button class="btnDeleteMessage" v-on:click="deleteMessage(message.id)">Delete</button>
+      <button class="btnDeleteMessage" v-on:click="deleteMessage(message)">Delete</button>
     </div>
   </div>
 </template>
@@ -31,7 +31,10 @@ export default {
     topicId: Number
   },
   methods: {
-    deleteMessage(id) {}
+    deleteMessage(message) {
+      messageService.deleteMessage(message);
+      this.$store.commit("DELETE_MESSAGE", message.id);
+    }
   },
   created() {
     topicService
